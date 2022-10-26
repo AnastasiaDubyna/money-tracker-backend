@@ -29,6 +29,7 @@ public class Transaction {
     private Integer amount;
     private String type;
     private Date date;
+
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "transaction_tags", joinColumns = @JoinColumn(name = "transaction_id"))
     @Column(name = "tags")
