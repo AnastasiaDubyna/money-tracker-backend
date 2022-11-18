@@ -13,7 +13,7 @@ import java.util.List;
 public interface TransactionRepository extends JpaRepository<Transaction, Integer> {
 
     @Query(
-        value="SELECT  id, date, type, transaction_id, tags, amount FROM transaction t INNER JOIN transaction_tags ts ON(t.id=ts.transaction_id) " +
+        value="SELECT  transaction_id, tags, amount FROM transaction t INNER JOIN transaction_tags ts ON(t.id=ts.transaction_id) " +
                 "WHERE type=?1 " +
                 "AND date between ?2 AND ?3",
         nativeQuery = true)
